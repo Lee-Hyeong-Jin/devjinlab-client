@@ -52,43 +52,35 @@ const awards = [
 
 export function Awards() {
   return (
-    <div className="py-14">
+    <div>
       <div className="flex items-baseline justify-between gap-4">
-        <p className="font-mono text-xs tracking-[0.2em] text-signal uppercase">
+        <p className="font-mono text-xs tracking-[0.3em] text-signal uppercase">
           수상경력
         </p>
         <p className="font-mono text-xs text-muted-foreground">
-          9건 · 2019 — 2024
+          9건 · 2019—2024
         </p>
       </div>
 
-      <div className="mt-8 overflow-x-auto">
-        <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
-          <thead>
-            <tr className="border-b border-border text-xs text-muted-foreground">
-              <th className="py-2 pr-4 font-mono font-normal">대회명</th>
-              <th className="py-2 pr-4 font-mono font-normal">연도</th>
-              <th className="py-2 pr-4 font-mono font-normal">수상내역</th>
-              <th className="py-2 font-mono font-normal">주최기관</th>
-            </tr>
-          </thead>
-          <tbody>
-            {awards.map((award) => (
-              <tr
-                key={award.name + award.year}
-                className="border-b border-border/60 last:border-none"
-              >
-                <td className="py-2.5 pr-4">{award.name}</td>
-                <td className="py-2.5 pr-4 font-mono text-muted-foreground">
-                  {award.year}
-                </td>
-                <td className="py-2.5 pr-4 text-amber">{award.prize}</td>
-                <td className="py-2.5 text-foreground/70">{award.host}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <ul className="mt-8 flex flex-col gap-5">
+        {awards.map((award) => (
+          <li
+            key={award.name + award.year}
+            className="flex items-baseline justify-between gap-4"
+          >
+            <div>
+              <p className="font-medium">{award.name}</p>
+              <p className="mt-0.5 text-sm text-muted-foreground">
+                <span className="text-violet">{award.prize}</span> ·{" "}
+                {award.host}
+              </p>
+            </div>
+            <p className="shrink-0 font-mono text-xs text-muted-foreground">
+              {award.year}
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
