@@ -11,9 +11,9 @@ export default function Page() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <GalleryPreview />
         <BlogPreview />
+        <GalleryPreview />
+        <About />
         <Contact />
       </main>
     </>

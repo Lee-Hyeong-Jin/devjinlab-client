@@ -27,8 +27,8 @@ const skill_groups = [
 
 export function Skills() {
   return (
-    <div className="border-b border-border py-14">
-      <p className="font-mono text-xs tracking-[0.2em] text-signal uppercase">
+    <div>
+      <p className="font-mono text-xs tracking-[0.3em] text-signal uppercase">
         기술 스택
       </p>
 
@@ -42,7 +42,7 @@ export function Skills() {
               {group.items.map((item) => (
                 <li
                   key={item}
-                  className="rounded-md border border-border bg-card px-2.5 py-1 font-mono text-xs"
+                  className="rounded bg-muted px-2.5 py-1 font-mono text-xs"
                 >
                   {item}
                 </li>

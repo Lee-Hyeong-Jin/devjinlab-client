@@ -1,15 +1,28 @@
 import type { Metadata } from "next"
-import { Geist_Mono, Inter } from "next/font/google"
+import { Geist_Mono, Inter, Instrument_Serif, Gowun_Batang } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { GrainOverlay } from "@/components/grain-overlay"
 import { cn } from "@/lib/utils"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+})
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-serif",
+})
+
+const gowunBatang = Gowun_Batang({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-kr-serif",
 })
 
 export const metadata: Metadata = {
@@ -27,13 +40,18 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         "antialiased",
-        fontMono.variable,
         "font-sans",
-        inter.variable
+        inter.variable,
+        fontMono.variable,
+        instrumentSerif.variable,
+        gowunBatang.variable
       )}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <GrainOverlay />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
